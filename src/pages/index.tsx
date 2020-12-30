@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { AppHeader } from "../components/appHeader/AppHeader";
+import { About } from "../components/layout/about/About";
+import { AppHeader } from "../components/layout/appHeader/AppHeader";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
@@ -14,7 +15,11 @@ export default function Home() {
             <AppHeader />
          </header>
 
-         <main className={styles.main}></main>
+         <main className={styles.main}>
+            <section>
+               <About />
+            </section>
+         </main>
 
          <footer className={styles.footer}></footer>
       </div>

@@ -1,0 +1,30 @@
+.about_info_card1,
+.about_info_card3 {
+   background-color: $paste_green;
+   padding: 15px 25px;
+   .about_card_title {
+      color: white;
+      font-weight: 700;
+   }
+   .about_card_text {
+      color: azure;
+   }
+}
+.about_info_card2 {
+   background-color: $dark_grey;
+   padding: 15px 25px;
+   .about_card_title {
+      color: white;
+      font-weight: 700;
+   }
+   .about_card_text {
+      color: azure;
+   }
+}
+
+.about_card_icon {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   //    font-size: 40px !important;
+}

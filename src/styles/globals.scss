@@ -4,15 +4,18 @@
 $paste_green: #00c6bf;
 $dark_grey: #3c4456;
 $title_font: "Poppins", sans-serif;
+$title_font_size: 40px;
+$title_font_weight: 600;
 $text_font: "Roboto", sans-serif;
-$linar_background: linear-gradient(to bottom right, #00cee5, #00d2b1);
+$text_font_size: 16px;
+$text-font-color: #b5b5b5;
+$linar_background: linear-gradient(to bottom left, #00cee5, #1fd4b9);
 
 html,
 body {
    padding: 0;
    margin: 0;
-   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+   font-family: $text_font;
 }
 
 a {
@@ -23,3 +26,25 @@ a {
 * {
    box-sizing: border-box;
 }
+.title {
+   font-family: $title_font !important;
+   font-size: $title_font_size !important;
+   font-weight: $title_font_weight !important;
+}
+
+.text {
+   color: $text-font-color !important;
+   font-size: $text_font_size !important;
+}
+
+.linar_btn {
+   background: $linar_background;
+   font-weight: bolder !important;
+   font-size: 12px !important;
+   color: white !important;
+   border-radius: 0 !important;
+   padding: 10px 28px !important;
+}
+
+@import "../components/layout/appHeader/appHeader";
+@import "../components/layout/about/about";
