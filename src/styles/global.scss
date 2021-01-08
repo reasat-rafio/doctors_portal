@@ -26,6 +26,9 @@ a {
 * {
    box-sizing: border-box;
 }
+.landing_page {
+   background-color: $dark_grey;
+}
 
 // Navbar
 @import "../components/Navbar/navbar.scss";

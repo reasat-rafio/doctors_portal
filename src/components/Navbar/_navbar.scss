@@ -1,1 +1,21 @@
+.navbar {
+   ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
 
+      width: 100vw;
+      height: 40px;
+
+      li {
+         list-style: none;
+
+         a {
+            margin: 0 30px;
+            color: black;
+            font-weight: bold;
+            outline: none;
+         }
+      }
+   }
+}
