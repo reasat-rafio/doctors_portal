@@ -21,3 +21,18 @@
    font-size: 13px !important;
    font-weight: bolder !important;
 }
+
+.notMiddle_card,
+.middle_card {
+   color: white;
+   padding: 15px 40px;
+   border-radius: 3px;
+}
+
+.notMiddle_card {
+   background-color: $paste_green;
+}
+
+.middle_card {
+   background-color: $dark_grey;
+}

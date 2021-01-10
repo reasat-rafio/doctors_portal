@@ -8,3 +8,10 @@ export const SmNavMenuStyles = makeStyles({
       width: "auto",
    },
 });
+
+export const HomeStyles = makeStyles({
+   cardWitdh: {
+      width: "80vw",
+      margin: "auto",
+   },
+});
