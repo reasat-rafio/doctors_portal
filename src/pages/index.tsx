@@ -1,7 +1,8 @@
 import Head from "next/head";
+import { Home } from "../components/Home/Home";
 import { Navmenu } from "../components/Navbar/Navmenu";
 
-export default function Home() {
+export default function Index() {
    return (
       <div>
          <Head>
@@ -11,7 +12,9 @@ export default function Home() {
          <nav>
             <Navmenu />
          </nav>
-         <main></main>
+         <main>
+            <Home />
+         </main>
 
          <footer></footer>
       </div>

@@ -7,7 +7,7 @@ $title_font: "Poppins", sans-serif;
 $title_font_size: 40px;
 $title_font_weight: 600;
 $text_font: "Roboto", sans-serif;
-$text_font_size: 16px;
+$text_font_size: 15px;
 $text-font-color: #b5b5b5;
 $linar_background: linear-gradient(to bottom left, #00cee5, #1fd4b9);
 
@@ -26,9 +26,29 @@ a {
 * {
    box-sizing: border-box;
 }
+
+main {
+   margin: 0 25px;
+}
+
 .landing_page {
    background-color: $dark_grey;
 }
 
+.title {
+   font-family: $title_font !important;
+   font-weight: $title_font_weight !important;
+   font-size: $title_font_size !important;
+}
+
+.text {
+   font-family: $text_font !important;
+   font-size: $text_font_size !important;
+   color: $text-font-color !important;
+}
+
 // Navbar
 @import "../components/Navbar/navbar.scss";
+
+// Home
+@import "../components/Home/home.scss";

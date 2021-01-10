@@ -53,7 +53,7 @@ export default function SmNavMenu() {
       ListFn("About", <InfoIcon />, "about"),
    ];
 
-   const list = (anchor) => (
+   const list = (anchor: any) => (
       <div
          className={clsx(classes.list, {
             [classes.fullList]: anchor === "top" || anchor === "bottom",

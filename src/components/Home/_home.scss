@@ -1,0 +1,23 @@
+.home {
+   margin: 30px 0;
+}
+
+.home_des {
+   .text {
+      margin: 25px 0;
+   }
+}
+
+.home_img {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.home_btn {
+   background-image: $linar_background;
+   border-radius: 0 !important;
+   color: white !important;
+   font-size: 13px !important;
+   font-weight: bolder !important;
+}
