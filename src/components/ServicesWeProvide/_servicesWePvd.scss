@@ -1,11 +1,11 @@
-.about {
-   .about_header {
+.About {
+   .About_header {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
 
-      .about_title {
+      .About_title {
          font-weight: bolder;
          color: $paste_green !important;
       }
@@ -18,5 +18,13 @@
    .abtCdTitle {
       font-weight: bolder;
       margin: 10px 0;
+   }
+   .svgWepvdBtn {
+      margin: 20px 0;
+   }
+   .imgContainer {
+      position: relative;
+      margin: auto;
+      max-width: 500px;
    }
 }

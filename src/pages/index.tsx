@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { About } from "../components/About/About";
+import { ServicesWeProvide } from "../components/ServicesWeProvide/ServicesWeProvide";
 import { Home } from "../components/Home/Home";
 import { Navmenu } from "../components/Navbar/Navmenu";
 
@@ -15,7 +15,7 @@ export default function Index() {
          </nav>
          <main>
             <Home />
-            <About />
+            <ServicesWeProvide />
          </main>
 
          <footer></footer>

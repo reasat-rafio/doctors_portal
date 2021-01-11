@@ -1,12 +1,12 @@
 import { Grid, Typography } from "@material-ui/core";
 
-interface AboutCardsProps {
+interface ServicesWePvdCardsProps {
    title: string;
    text: string;
    icon: any;
 }
 
-export const AboutCards: React.FC<AboutCardsProps> = ({
+export const ServicesWePvdCards: React.FC<ServicesWePvdCardsProps> = ({
    title,
    text,
    icon,

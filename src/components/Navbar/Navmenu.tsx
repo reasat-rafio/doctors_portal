@@ -25,7 +25,7 @@ export const Navmenu: React.FC<NavmenuProps> = ({}) => {
                      <a href="#home">Home</a>
                   </li>
                   <li>
-                     <a href="#about">About</a>
+                     <a href="#About">About</a>
                   </li>
                   <li>
                      <a href="#dental-services">Dental Services</a>

@@ -1,9 +1,10 @@
 import { Grid, Typography } from "@material-ui/core";
 import Image from "next/image";
 import { HomeStyles } from "../../utils/styles";
-import { AboutCards } from "./AboutCards";
+import { ServicesWePvdCards } from "./ServicesWePvdCards";
+import { SvcWePvdDetails } from "./SvcWePvdDetails";
 
-interface AboutProps {}
+interface ServicesWeProvideProps {}
 
 const card = [
    {
@@ -11,7 +12,7 @@ const card = [
          <Image
             src="/001-dental.png"
             alt="picture"
-            layout="intrinsic"
+            layout="fixed"
             width={50}
             height={50}
          />
@@ -26,7 +27,7 @@ const card = [
             src="/tooth.png"
             alt="picture"
             width={50}
-            layout="intrinsic"
+            layout="fixed"
             height={50}
          />
       ),
@@ -40,7 +41,7 @@ const card = [
             src="/tooth (1).png"
             alt="picture"
             width={50}
-            layout="intrinsic"
+            layout="fixed"
             height={50}
          />
       ),
@@ -50,20 +51,20 @@ const card = [
    },
 ];
 
-export const About: React.FC<AboutProps> = ({}) => {
+export const ServicesWeProvide: React.FC<ServicesWeProvideProps> = ({}) => {
    const classes = HomeStyles();
 
    return (
-      <div className="about">
-         <div className="about_header">
+      <div className="About">
+         <div className="About_header">
             <Typography
-               className="about_title"
+               className="About_title"
                variant="subtitle2"
                gutterBottom
             >
                OUR SERVICES
             </Typography>
-            <Typography className="about_subtitle" variant="h4">
+            <Typography className="About_subtitle" variant="h4">
                Services We Provide
             </Typography>
          </div>
@@ -78,10 +79,16 @@ export const About: React.FC<AboutProps> = ({}) => {
          >
             {card.map((c, i) => (
                <Grid key={i} container item md={4} xs={12}>
-                  <AboutCards title={c.title} text={c.text} icon={c.icon} />
+                  <ServicesWePvdCards
+                     title={c.title}
+                     text={c.text}
+                     icon={c.icon}
+                  />
                </Grid>
             ))}
          </Grid>
+
+         <SvcWePvdDetails />
       </div>
    );
 };

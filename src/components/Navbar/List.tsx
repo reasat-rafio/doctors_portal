@@ -50,7 +50,7 @@ export default function SmNavMenu() {
    const itemList2 = [
       ListFn("Contact Us", <ContactMailIcon />, "contact-us"),
       ListFn("Reviews", <CommentIcon />, "reviews"),
-      ListFn("About", <InfoIcon />, "about"),
+      ListFn("About", <InfoIcon />, "About"),
    ];
 
    const list = (anchor: any) => (
