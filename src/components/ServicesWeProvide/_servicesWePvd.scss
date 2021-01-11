@@ -22,9 +22,18 @@
    .svgWepvdBtn {
       margin: 20px 0;
    }
-   .imgContainer {
-      position: relative;
-      margin: auto;
-      max-width: 500px;
+   .svcDtl {
+      margin: 50px 0;
+      .imgContainer {
+         position: relative;
+         margin: auto;
+         max-width: 500px;
+      }
+
+      .description {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
    }
 }

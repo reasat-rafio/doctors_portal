@@ -16,24 +16,26 @@ export const SvcWePvdDetails: React.FC<SvcWePvdDetailsProps> = ({}) => {
                layout="responsive"
             />
          </Grid>
-         <Grid item md={8} xs={12}>
-            <Typography className="title" gutterBottom>
-               Exceptional Dental Care, on Your Terms
-            </Typography>
-            <Typography className="text">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-               esse illo veniam repudiandae, repellendus quod incidunt eligendi
-               eos laborum, iusto perspiciatis deserunt suscipit, cum fugit.
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil a
-               aliquid voluptates inventore? Omnis fuga inventore hic, modi
-               temporibus consectetur? Lorem ipsum dolor sit amet consectetur
-               adipisicing elit. Explicabo, sed minus. Sunt ipsum tempora
-               mollitia! Lorem ipsum dolor sit amet consectetur adipisicing
-               elit. Nemo nisi consectetur accusantium saepe. Neque esse
-               deserunt commodi atque aliquam possimus.
-            </Typography>
-
-            <Button className="home_btn svgWepvdBtn">Learn More</Button>
+         <Grid className="description" item md={8} xs={12}>
+            <div>
+               <Typography className="title" gutterBottom>
+                  Exceptional Dental Care, on Your Terms
+               </Typography>
+               <Typography className="text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolorum esse illo veniam repudiandae, repellendus quod
+                  incidunt eligendi eos laborum, iusto perspiciatis deserunt
+                  suscipit, cum fugit. Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Nihil a aliquid voluptates inventore? Omnis
+                  fuga inventore hic, modi temporibus consectetur? Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Explicabo, sed
+                  minus. Sunt ipsum tempora mollitia! Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Nemo nisi consectetur
+                  accusantium saepe. Neque esse deserunt commodi atque aliquam
+                  possimus.
+               </Typography>
+               <Button className="home_btn svgWepvdBtn">Learn More</Button>
+            </div>
          </Grid>
       </Grid>
    );
