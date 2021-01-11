@@ -1,0 +1,22 @@
+.about {
+   .about_header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .about_title {
+         font-weight: bolder;
+         color: $paste_green !important;
+      }
+   }
+   .abtCdIcon,
+   .abtCdTitle,
+   .abtCdText {
+      text-align: center;
+   }
+   .abtCdTitle {
+      font-weight: bolder;
+      margin: 10px 0;
+   }
+}

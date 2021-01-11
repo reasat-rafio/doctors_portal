@@ -60,8 +60,8 @@ export const Home: React.FC<HomeProps> = ({}) => {
             alignItems="center"
             style={{ marginTop: "30px" }}
          >
-            {card.map((c) => (
-               <Grid container item lg={4} md={6} xs={12}>
+            {card.map((c, i) => (
+               <Grid key={i} container item lg={4} md={6} xs={12}>
                   <Cards title={c.title} text={c.text} icon={c.icon} />
                </Grid>
             ))}

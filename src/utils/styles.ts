@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 export const SmNavMenuStyles = makeStyles({
    list: {
@@ -9,9 +9,14 @@ export const SmNavMenuStyles = makeStyles({
    },
 });
 
-export const HomeStyles = makeStyles({
-   cardWitdh: {
-      width: "80vw",
-      margin: "auto",
-   },
-});
+export const HomeStyles = makeStyles((theme: Theme) =>
+   createStyles({
+      cardWitdh: {
+         width: "80vw",
+         [theme.breakpoints.down("sm")]: {
+            width: "100%",
+         },
+         margin: "auto",
+      },
+   })
+);
