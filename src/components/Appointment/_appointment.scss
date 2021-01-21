@@ -1,0 +1,27 @@
+.appointment {
+   width: 100%;
+   .innerAppointment {
+      background: $dark-bg;
+   }
+
+   .imgContainer {
+      z-index: 20;
+      margin: auto;
+      max-width: 300px;
+   }
+
+   .description {
+      margin: auto;
+      padding: 25px;
+      .text {
+         padding: 20px 0px 20px 0px;
+      }
+      .ap_title {
+         font-weight: bolder;
+         color: $paste_green !important;
+      }
+      .title {
+         color: white;
+      }
+   }
+}

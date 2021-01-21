@@ -2,6 +2,8 @@ import Head from "next/head";
 import { ServicesWeProvide } from "../components/ServicesWeProvide/ServicesWeProvide";
 import { Home } from "../components/Home/Home";
 import { Navmenu } from "../components/Navbar/Navmenu";
+import { Appointment } from "../components/Appointment/Appointment";
+import { Main } from "next/document";
 
 export default function Index() {
    return (
@@ -14,8 +16,11 @@ export default function Index() {
             <Navmenu />
          </nav>
          <main>
-            <Home />
-            <ServicesWeProvide />
+            <section className="landingSection">
+               <Home />
+               <ServicesWeProvide />
+            </section>
+            <Appointment />
          </main>
 
          <footer></footer>

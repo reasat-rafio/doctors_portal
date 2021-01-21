@@ -10,7 +10,7 @@ $text_font: "Roboto", sans-serif;
 $text_font_size: 15px;
 $text-font-color: #b5b5b5;
 $linar_background: linear-gradient(to bottom left, #00cee5, #1fd4b9);
-
+$dark-bg: #3a4152;
 html,
 body {
    padding: 0;
@@ -27,7 +27,7 @@ a {
    box-sizing: border-box;
 }
 
-main {
+.landingSection {
    margin: 0 25px;
 }
 
@@ -55,3 +55,6 @@ main {
 
 // Services We Provide
 @import "../components/ServicesWeProvide/servicesWePvd.scss";
+
+// Appointment
+@import "../components/Appointment/appointment.scss";

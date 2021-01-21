@@ -20,3 +20,11 @@ export const HomeStyles = makeStyles((theme: Theme) =>
       },
    })
 );
+
+export const AppointmentStyles = makeStyles((theme: Theme) => {
+   createStyles({
+      picWidth: {
+         maxWidth: "500px",
+      },
+   });
+});
