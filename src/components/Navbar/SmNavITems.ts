@@ -5,6 +5,6 @@ export const ListFn = (text: string, icon: any, path: string) => {
    return {
       text,
       icon,
-      onClick: () => router.push(`/#${path}`),
+      onClick: () => router.push(`/${path}`),
    };
 };

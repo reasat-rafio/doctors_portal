@@ -1,11 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import { useResize } from "../../utils/useResize";
 import SmNavMenu from "./List";
+import Link from "next/link";
 
 interface NavmenuProps {}
 
 export const Navmenu: React.FC<NavmenuProps> = ({}) => {
-   const myRef = useRef(null);
+   const myRef = useRef<any>(null);
    const { width, height } = useResize(myRef);
 
    const [isSmDevice, setIsSmDevice] = useState<boolean>(false);
@@ -22,7 +23,9 @@ export const Navmenu: React.FC<NavmenuProps> = ({}) => {
             {width > 950 ? (
                <>
                   <li>
-                     <a href="#home">Home</a>
+                     <Link href="/">
+                        <a>Home</a>
+                     </Link>
                   </li>
                   <li>
                      <a href="#About">About</a>

@@ -42,7 +42,7 @@ export default function SmNavMenu() {
 
    // NavItems
    const itemList = [
-      ListFn("Home", <HomeIcon />, "home"),
+      ListFn("Home", <HomeIcon />, ""),
       ListFn("Dental Services", <LocalHospitalIcon />, "dental-services"),
       ListFn("Blog", <DescriptionIcon />, "blog"),
    ];
