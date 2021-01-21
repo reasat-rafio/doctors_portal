@@ -9,6 +9,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "../utils/theme";
 // scss
 import "../styles/global.scss";
+import { Layout } from "../components/Layout/Layout";
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
    React.useEffect(() => {
       // Remove the server-side injected CSS.
@@ -29,7 +30,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
          </Head>
          <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Component {...pageProps} />
+            <Layout>
+               <Component {...pageProps} />
+            </Layout>
          </ThemeProvider>
       </>
    );

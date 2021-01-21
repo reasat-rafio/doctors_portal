@@ -1,33 +1,21 @@
 import { Grid } from "@material-ui/core";
 import { Typography, Button } from "@material-ui/core";
 import Image from "next/image";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
-import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import PhoneInTalkIcon from "@material-ui/icons/PhoneInTalk";
 import { Cards } from "./Cards";
 import { HomeStyles } from "../../utils/styles";
-interface HomeProps {}
+import { card } from "./_Helper";
+import { useRouter } from "next/router";
 
-const card = [
-   {
-      icon: <LocationOnIcon fontSize="large" />,
-      title: "Whats our location",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-   },
-   {
-      icon: <AccessTimeIcon fontSize="large" />,
-      title: "Opening Hours",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-   },
-   {
-      icon: <PhoneInTalkIcon fontSize="large" />,
-      title: "Contact us now",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-   },
-];
+interface HomeProps {}
 
 export const Home: React.FC<HomeProps> = ({}) => {
    const classes = HomeStyles();
+   const router = useRouter();
+
+   // Go to appointment button action
+   const getAppointmentAction = () => {
+      router.push("/appointment");
+   };
 
    return (
       <div className="home">
@@ -40,7 +28,9 @@ export const Home: React.FC<HomeProps> = ({}) => {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Facere, quos blanditiis molestiae debitis assumenda delectus.
                </Typography>
-               <Button className="home_btn">Get appointment</Button>
+               <Button className="home_btn" onClick={getAppointmentAction}>
+                  Get appointment
+               </Button>
             </Grid>
             <Grid item md={7} xs={12} className="home_img">
                <Image

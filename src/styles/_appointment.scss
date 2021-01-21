@@ -1,0 +1,29 @@
+.appointment {
+   padding: 10px;
+   .ap_dtls {
+      .title {
+         text-align: center;
+         margin: 20px 0;
+      }
+      .react-calendar {
+         margin: auto;
+         border-radius: 7px;
+         padding: 50px 10px;
+         border: none !important;
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      p {
+         text-align: center;
+      }
+   }
+
+   .react-calendar__tile--active {
+      border-radius: 7px;
+      background-image: $linar_background !important;
+      color: white;
+   }
+   .imgContainer {
+      max-width: 900px;
+   }
+}
