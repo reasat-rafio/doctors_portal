@@ -1,16 +1,15 @@
-import { Document, Schema, models, model } from "mongoose";
+import { Document, Schema, models, model, Model } from "mongoose";
 import bcrypt from "bcrypt";
 
-// export interface SavedUserDocument extends Document {
-//    email: string;
-//    password: string;
-//    name: string;
-// }
-
-interface IUser {
+export interface SavedUserDocument extends Document {
    email: string;
    password: string;
-   name: string;
+   name?: string;
+   loginUser?: () => string;
+}
+
+interface IUserModel extends Model<SavedUserDocument> {
+   loginUser(password: string, email: string): string;
 }
 
 const doctorsSchema = new Schema(
@@ -39,7 +38,7 @@ const doctorsSchema = new Schema(
 );
 
 // This function will fire before user Regiter
-doctorsSchema.pre<any>("save", async function (next) {
+doctorsSchema.pre<any>("save", async function (this, next) {
    try {
       const salt = await bcrypt.genSalt();
       this.password = await bcrypt.hash(this.password, salt);
@@ -49,6 +48,22 @@ doctorsSchema.pre<any>("save", async function (next) {
    }
 });
 
-let DataSet = models.doctor || model("doctor", doctorsSchema);
+// Login user function
+// doctorsSchema.statics.loginUser = async function (
+//    email: string,
+//    password: string
+// ) {
+//    const user: any = await this.findOne({ email });
+//    if (user) {
+//       const auth = await bcrypt.compare(password, user.password);
+//       if (auth) {
+//          return user;
+//       }
+//       throw Error("Incorrect Password");
+//    }
+//    throw Error("Incorrect email");
+// };
+
+let DataSet = models.doctor || model<IUserModel | any>("doctor", doctorsSchema);
 
 export default DataSet;

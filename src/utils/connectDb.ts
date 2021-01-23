@@ -3,8 +3,6 @@ import mongoose from "mongoose";
 const connectDB = async () => {
    const URI: any = process.env.MONGO_URI;
 
-   //    console.log(typeof process.env.MONGO_URI);
-
    try {
       await mongoose.connect(URI, {
          useFindAndModify: true,
