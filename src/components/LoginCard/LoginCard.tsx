@@ -4,11 +4,29 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { loginCardStyles } from "../../utils/styles";
 import { Grid, Link, TextField } from "@material-ui/core";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { LoginSchema } from "../../utils/yupSchema";
 
 interface LoginCardProps {}
+interface LoginDataInterFace {
+   email: string;
+   password: string;
+}
 
 export const LoginCard: React.FC<LoginCardProps> = ({}) => {
    const classes = loginCardStyles();
+
+   // Setting up Yup as useFrom resolver
+   const { handleSubmit, register, errors } = useForm({
+      resolver: yupResolver(LoginSchema),
+   });
+
+   // on the form submit
+   const onSubmit = (data: LoginDataInterFace) => {
+      console.log(data);
+   };
+
    return (
       <section className="login-card">
          <Card className={classes.root}>
@@ -17,30 +35,45 @@ export const LoginCard: React.FC<LoginCardProps> = ({}) => {
                   Login
                </Typography>
 
-               <form className={""} noValidate>
+               <form noValidate onSubmit={handleSubmit(onSubmit)}>
                   <Grid container spacing={2}>
                      <Grid item xs={12}>
                         <TextField
+                           color="secondary"
                            variant="standard"
                            required
                            fullWidth
-                           id="email"
                            label="Email Address"
                            name="email"
                            autoComplete="email"
+                           inputRef={register}
                         />
                      </Grid>
+
+                     {errors.email && (
+                        <Typography variant="body2" color="secondary">
+                           {errors.email.message}
+                        </Typography>
+                     )}
+
                      <Grid item xs={12}>
                         <TextField
+                           color="secondary"
                            variant="standard"
                            required
                            fullWidth
                            name="password"
                            label="Password"
                            type="password"
-                           id="password"
+                           inputRef={register}
                         />
                      </Grid>
+
+                     {errors.password && (
+                        <Typography variant="body2" color="secondary">
+                           {errors.password.message}
+                        </Typography>
+                     )}
                   </Grid>
                   <Button
                      type="submit"
