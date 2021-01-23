@@ -4,6 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import { Grid, Typography } from "@material-ui/core";
 import Image from "next/image";
 import { AvailbleAppointments } from "../components/AvailableAppointments/AvailbleAppointments";
+import { Layout } from "../components/Layout/Layout";
 
 interface appointmentProps {}
 const Appointment: React.FC<appointmentProps> = ({}) => {
@@ -15,38 +16,40 @@ const Appointment: React.FC<appointmentProps> = ({}) => {
    };
 
    return (
-      <main className="appointment">
-         {/* Appointment calender section */}
-         <section>
-            <Grid container>
-               <Grid item md={5} xs={12}>
-                  <div className="ap_dtls">
-                     <Typography className="title">Appointment</Typography>
+      <Layout>
+         <main className="appointment">
+            {/* Appointment calender section */}
+            <section>
+               <Grid container>
+                  <Grid item md={5} xs={12}>
+                     <div className="ap_dtls">
+                        <Typography className="title">Appointment</Typography>
 
-                     <Calendar
-                        value={dateState}
-                        onChange={changeDate}
-                        className="react-calendar"
-                     />
-                  </div>
+                        <Calendar
+                           value={dateState}
+                           onChange={changeDate}
+                           className="react-calendar"
+                        />
+                     </div>
+                  </Grid>
+                  <Grid item md={7} xs={12}>
+                     <div className="imgContainer">
+                        <Image
+                           height={1}
+                           width={2}
+                           layout="responsive"
+                           src="/img1.png"
+                        />
+                     </div>
+                  </Grid>
                </Grid>
-               <Grid item md={7} xs={12}>
-                  <div className="imgContainer">
-                     <Image
-                        height={1}
-                        width={2}
-                        layout="responsive"
-                        src="/img1.png"
-                     />
-                  </div>
-               </Grid>
-            </Grid>
-         </section>
-         {/* Available Appointment section */}
-         <section>
-            <AvailbleAppointments date={dateState} />
-         </section>
-      </main>
+            </section>
+            {/* Available Appointment section */}
+            <section>
+               <AvailbleAppointments date={dateState} />
+            </section>
+         </main>
+      </Layout>
    );
 };
 

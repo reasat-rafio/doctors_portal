@@ -28,3 +28,28 @@ export const AppointmentStyles = makeStyles((theme: Theme) => {
       },
    });
 });
+
+export const loginCardStyles = makeStyles((theme: Theme) =>
+   createStyles({
+      root: {
+         minWidth: 275,
+      },
+      bullet: {
+         display: "inline-block",
+         margin: "0 2px",
+         transform: "scale(0.8)",
+      },
+      title: {
+         marginTop: 10,
+         marginBottom: 10,
+         fontSize: 16,
+         textAlign: "center",
+      },
+      loginContaienr: {
+         marginTop: "auto",
+         [theme.breakpoints.down("sm")]: {
+            margin: "auto",
+         },
+      },
+   })
+);

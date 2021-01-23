@@ -1,0 +1,18 @@
+.login {
+   .lgCnt {
+      height: 100vh;
+      margin: auto;
+      .imgContaienr {
+      }
+      .login-card {
+         width: 70%;
+         margin: auto;
+
+         .btn {
+            border-radius: 0 !important;
+            margin: 30px 0;
+            background-image: $linar_background;
+         }
+      }
+   }
+}
