@@ -1,5 +1,6 @@
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
+import Head from "next/head";
 import { LoginCard } from "../../components/LoginCard/LoginCard";
 import { loginCardStyles } from "../../utils/styles";
 
@@ -9,6 +10,10 @@ const Login: React.FC<LoginProps> = ({}) => {
    const classes = loginCardStyles();
    return (
       <div className="login ">
+         <Head>
+            <title>Login | Doctors Portal</title>
+            <link rel="icon" href="/favicon.ico" />
+         </Head>
          <Grid container className="lgCnt">
             <Grid
                container
