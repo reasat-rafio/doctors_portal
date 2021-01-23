@@ -7,6 +7,8 @@ import { Grid, Link, TextField } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "../../utils/yupSchema";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 interface LoginCardProps {}
 interface LoginDataInterFace {
@@ -23,8 +25,13 @@ export const LoginCard: React.FC<LoginCardProps> = ({}) => {
    });
 
    // on the form submit
-   const onSubmit = (data: LoginDataInterFace) => {
-      console.log(data);
+   const onSubmit = async (user: LoginDataInterFace) => {
+      const { data } = await axios.post(
+         `${process.env.BASE_URL}/api/auth/login`,
+         user
+      );
+
+      Cookies.set("token", data.token, { expires: 7 });
    };
 
    return (
