@@ -21,7 +21,7 @@ export const userReducer = (state: State, action: Action) => {
    switch (action.type) {
       case LOADING_START:
          return { ...state, loading: true };
-      case "LOADING_END":
+      case LOADING_END:
          return { ...state, loading: false };
       default:
          return state;

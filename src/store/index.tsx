@@ -22,9 +22,7 @@ export const GlobalState: React.FC<StoreProps> = ({ children }) => {
    );
 
    return (
-      <Store.Provider value={{ state, dispatch, setSnackbar, removeSnackbar }}>
-         {children}
-      </Store.Provider>
+      <Store.Provider value={{ state, dispatch }}>{children}</Store.Provider>
    );
 };
 

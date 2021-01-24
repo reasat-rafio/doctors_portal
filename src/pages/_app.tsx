@@ -11,6 +11,7 @@ import theme from "../utils/theme";
 import "../styles/global.scss";
 // Global Store
 import { GlobalState } from "../store/index";
+import { GlobalLayout } from "../components/Layout/GlobalLayout";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
    React.useEffect(() => {
@@ -33,7 +34,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
          <ThemeProvider theme={theme}>
             <CssBaseline />
             <GlobalState>
-               <Component {...pageProps} />
+               <GlobalLayout>
+                  <Component {...pageProps} />
+               </GlobalLayout>
             </GlobalState>
          </ThemeProvider>
       </>

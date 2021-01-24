@@ -3,6 +3,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 import { useCtx } from "../../store";
+import { removeSnackbar } from "../../store/actions/snackbar";
 
 function Alert(props: any) {
    return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -21,7 +22,6 @@ export default function Snackbars() {
    const {
       state: { snackbar },
       dispatch,
-      removeSnackbar,
    } = useCtx();
 
    const classes = useStyles();

@@ -47,7 +47,12 @@ const RegisterUser = async (req: NextApiRequest, res: NextApiResponse) => {
       // Returing a success response
       res.status(201).json({ success: true, data: { newUser } });
    } catch (error) {
-      console.log(error);
-      return res.status(403).json({ success: false, error: error.message });
+      if (error.code === 11000) {
+         return res
+            .status(403)
+            .json({ success: false, error: "This user is already exist" });
+      }
+
+      res.status(403).json({ success: false, error: error.message });
    }
 };

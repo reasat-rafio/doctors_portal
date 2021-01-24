@@ -10,15 +10,22 @@ import { RegisterSchema } from "../../utils/yupSchema";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import { useCtx } from "../../store";
+import { setSnackbar } from "../../store/actions/snackbar";
+import { useRouter } from "next/router";
 
 interface RegisterCard {}
+
 interface LoginDataInterFace {
+   name: string;
    email: string;
    password: string;
 }
 
 export const RegisterCard: React.FC<RegisterCard> = ({}) => {
    const classes = loginCardStyles();
+   const router = useRouter();
+   const { state, dispatch } = useCtx();
 
    // Setting up Yup as useFrom resolver
    const { handleSubmit, register, errors } = useForm({
@@ -27,10 +34,16 @@ export const RegisterCard: React.FC<RegisterCard> = ({}) => {
 
    // on the form submit
    const onSubmit = async (user: LoginDataInterFace) => {
-      //   const { data } = await axios.post(
-      //      `${process.env.BASE_URL}/api/auth/login`,
-      //      user
-      //   );
+      try {
+         const { data } = await axios.post(
+            `${process.env.BASE_URL}/api/auth/register`,
+            user
+         );
+         router.push("/auth/login");
+      } catch (error) {
+         dispatch(setSnackbar(true, "error", error.response.data.error));
+      }
+
       //   Cookies.set("token", data.token, { expires: 7 });
    };
 
