@@ -3,7 +3,7 @@ import { initialSnackbarState, snackbarReducer } from "./snackbarReducer";
 import { initialUserState, userReducer } from "./userReducer";
 
 const [profileReducer, initialProfile] = combineReducers<any>({
-   snakcbar: [snackbarReducer, initialSnackbarState],
+   snackbar: [snackbarReducer, initialSnackbarState],
    user: [userReducer, initialUserState],
 });
 

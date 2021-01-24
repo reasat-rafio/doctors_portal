@@ -1,5 +1,9 @@
-type Identity = {
-   name: string;
+import { CLEAR_SNACKBAR, SET_SNACKBAR } from "../types";
+
+type State = {
+   snackbarOpen: boolean;
+   snackbarType: string;
+   snackbarMessage: string;
 };
 
 type Action = {
@@ -7,14 +11,29 @@ type Action = {
    payload: any;
 };
 
-export const initialSnackbarState: Identity = {
-   name: "Harry",
+export const initialSnackbarState = {
+   snackbarOpen: false,
+   snackbarType: "",
+   snackbarMessage: "",
 };
 
-export const snackbarReducer = (state: Identity, action: Action) => {
+export const snackbarReducer = (state: State, action: Action) => {
    switch (action.type) {
-      case "ACTION_A":
-         return { ...state, name: "Puli" };
+      case SET_SNACKBAR:
+         const { snackbarOpen, snackbarType, snackbarMessage } = action.payload;
+         return {
+            ...state,
+            snackbarOpen,
+            snackbarType,
+            snackbarMessage,
+         };
+      case CLEAR_SNACKBAR:
+         return {
+            ...state,
+            snackbarOpen: false,
+            snackbarType: "",
+            snackbarMessage: "",
+         };
       default:
          return state;
    }
