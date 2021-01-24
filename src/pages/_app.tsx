@@ -9,6 +9,8 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "../utils/theme";
 // scss
 import "../styles/global.scss";
+// Global Store
+import { GlobalState } from "../store/index";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
    React.useEffect(() => {
@@ -30,8 +32,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
          </Head>
          <ThemeProvider theme={theme}>
             <CssBaseline />
-
-            <Component {...pageProps} />
+            <GlobalState>
+               <Component {...pageProps} />
+            </GlobalState>
          </ThemeProvider>
       </>
    );

@@ -3,6 +3,8 @@ import { ServicesWeProvide } from "../components/ServicesWeProvide/ServicesWePro
 import { Home } from "../components/Home/Home";
 import { Appointment } from "../components/Appointment/Appointment";
 import { Layout } from "../components/Layout/Layout";
+import { useCtx } from "../store";
+import { useEffect } from "react";
 
 export default function Index() {
    return (
