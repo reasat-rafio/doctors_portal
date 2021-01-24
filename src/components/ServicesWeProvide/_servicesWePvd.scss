@@ -25,9 +25,7 @@
    .svcDtl {
       margin: 50px 0;
       .imgContainer {
-         position: relative;
-         margin: auto;
-         max-width: 500px;
+         max-width: 500px !important;
       }
 
       .description {

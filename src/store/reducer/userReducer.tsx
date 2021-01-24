@@ -7,11 +7,13 @@ type Action = {
 
 type State = {
    loading: boolean;
+   isLoggedIn: boolean;
    user: any[];
 };
 
 export const initialUserState: State = {
    loading: false,
+   isLoggedIn: false,
    user: [],
 };
 

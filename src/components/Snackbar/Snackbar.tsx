@@ -49,7 +49,7 @@ export default function Snackbars() {
                horizontal: "right",
             }}
             open={open}
-            autoHideDuration={6000}
+            autoHideDuration={5000}
             onClose={handleClose}
          >
             <Alert onClose={handleClose} severity={snackbarType}>

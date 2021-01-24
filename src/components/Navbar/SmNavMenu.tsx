@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 
 import {
@@ -18,8 +18,12 @@ import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
 import CommentIcon from "@material-ui/icons/Comment";
 import DescriptionIcon from "@material-ui/icons/Description";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
+
 import { SmNavMenuStyles } from "../../utils/styles";
-import { ListFn } from "./SmNavITems";
+import { ListFn } from "./_HelperFn";
+import { useCtx } from "../../store";
 
 export default function SmNavMenu() {
    const classes = SmNavMenuStyles();
@@ -28,8 +32,15 @@ export default function SmNavMenu() {
       right: false,
    });
 
+   const {
+      state: {
+         user: { isLoggedIn },
+      },
+      dispatch,
+   } = useCtx();
+
    // NavMenu toggle action
-   const toggleDrawer = (anchor, open) => (event) => {
+   const toggleDrawer = (anchor: any, open: any) => (event: any) => {
       if (
          event.type === "keydown" &&
          (event.key === "Tab" || event.key === "Shift")
@@ -51,6 +62,9 @@ export default function SmNavMenu() {
       ListFn("Contact Us", <ContactMailIcon />, "contact-us"),
       ListFn("Reviews", <CommentIcon />, "reviews"),
       ListFn("About", <InfoIcon />, "About"),
+      isLoggedIn
+         ? ListFn("Logout", <ExitToAppIcon />, "")
+         : ListFn("Login", <AssignmentIndIcon />, "auth/login"),
    ];
 
    const list = (anchor: any) => (

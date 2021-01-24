@@ -6,33 +6,32 @@ import { loginCardStyles } from "../../utils/styles";
 import { Grid, TextField } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { LoginSchema } from "../../utils/yupSchema";
+import { RegisterSchema } from "../../utils/yupSchema";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
 
-interface LoginCardProps {}
+interface RegisterCard {}
 interface LoginDataInterFace {
    email: string;
    password: string;
 }
 
-export const LoginCard: React.FC<LoginCardProps> = ({}) => {
+export const RegisterCard: React.FC<RegisterCard> = ({}) => {
    const classes = loginCardStyles();
 
    // Setting up Yup as useFrom resolver
    const { handleSubmit, register, errors } = useForm({
-      resolver: yupResolver(LoginSchema),
+      resolver: yupResolver(RegisterSchema),
    });
 
    // on the form submit
    const onSubmit = async (user: LoginDataInterFace) => {
-      const { data } = await axios.post(
-         `${process.env.BASE_URL}/api/auth/login`,
-         user
-      );
-
-      Cookies.set("token", data.token, { expires: 7 });
+      //   const { data } = await axios.post(
+      //      `${process.env.BASE_URL}/api/auth/login`,
+      //      user
+      //   );
+      //   Cookies.set("token", data.token, { expires: 7 });
    };
 
    return (
@@ -40,11 +39,29 @@ export const LoginCard: React.FC<LoginCardProps> = ({}) => {
          <Card className={classes.root}>
             <CardContent>
                <Typography className={classes.title} gutterBottom>
-                  Login
+                  Sign Up
                </Typography>
 
                <form noValidate onSubmit={handleSubmit(onSubmit)}>
                   <Grid container spacing={2}>
+                     <Grid item xs={12}>
+                        <TextField
+                           color="secondary"
+                           variant="standard"
+                           required
+                           fullWidth
+                           label="User Name"
+                           name="name"
+                           autoComplete="name"
+                           inputRef={register}
+                        />
+                        {errors.name && (
+                           <Typography variant="body2" color="secondary">
+                              {errors.name.message}
+                           </Typography>
+                        )}
+                     </Grid>
+
                      <Grid item xs={12}>
                         <TextField
                            color="secondary"
@@ -56,13 +73,12 @@ export const LoginCard: React.FC<LoginCardProps> = ({}) => {
                            autoComplete="email"
                            inputRef={register}
                         />
+                        {errors.email && (
+                           <Typography variant="body2" color="secondary">
+                              {errors.email.message}
+                           </Typography>
+                        )}
                      </Grid>
-
-                     {errors.email && (
-                        <Typography variant="body2" color="secondary">
-                           {errors.email.message}
-                        </Typography>
-                     )}
 
                      <Grid item xs={12}>
                         <TextField
@@ -75,13 +91,12 @@ export const LoginCard: React.FC<LoginCardProps> = ({}) => {
                            type="password"
                            inputRef={register}
                         />
+                        {errors.password && (
+                           <Typography variant="body2" color="secondary">
+                              {errors.password.message}
+                           </Typography>
+                        )}
                      </Grid>
-
-                     {errors.password && (
-                        <Typography variant="body2" color="secondary">
-                           {errors.password.message}
-                        </Typography>
-                     )}
                   </Grid>
                   <Button
                      type="submit"
@@ -90,12 +105,12 @@ export const LoginCard: React.FC<LoginCardProps> = ({}) => {
                      color="primary"
                      className="btn"
                   >
-                     Login
+                     Register
                   </Button>
                   <Grid container justify="flex-end">
                      <Grid item>
-                        <Link href="/auth/register">
-                           <a>Don't have an account? Register</a>
+                        <Link href="/auth/login">
+                           <a>Already have an account? Login</a>
                         </Link>
                      </Grid>
                   </Grid>
