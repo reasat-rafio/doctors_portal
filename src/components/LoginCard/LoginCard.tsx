@@ -12,7 +12,11 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import { useCtx } from "../../store";
 import { setSnackbar } from "../../store/actions/snackbar";
-import { USER_LOGIN_ACTION } from "../../store/actions/userAction";
+import {
+   LOADING_START_ACTION,
+   LOADING_END_ACTION,
+   USER_LOGIN_ACTION,
+} from "../../store/actions/userAction";
 import { useRouter } from "next/router";
 
 interface LoginCardProps {}
@@ -34,14 +38,17 @@ export const LoginCard: React.FC<LoginCardProps> = ({}) => {
    // on the form submit
    const onSubmit = async (user: LoginDataInterFace) => {
       try {
+         userDispatch(LOADING_START_ACTION());
          const { data } = await axios.post(
             `${process.env.BASE_URL}/api/auth/login`,
             user
          );
-         Cookies.set("token", data.token, { expires: 7 });
          userDispatch(USER_LOGIN_ACTION(data.data));
+         Cookies.set("token", data.token, { expires: 7 });
          router.push("/");
+         userDispatch(LOADING_END_ACTION());
       } catch (error) {
+         userDispatch(LOADING_END_ACTION());
          snackbarDispatch(
             setSnackbar(true, "error", error.response.data.error)
          );

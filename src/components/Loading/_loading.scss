@@ -1,0 +1,13 @@
+.loading {
+   position: fixed;
+   height: 100vh;
+   width: 100vw;
+   margin: none !important;
+   padding: none !important;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.459);
+   z-index: 20000;
+   flex-direction: column;
+}

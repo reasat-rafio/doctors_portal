@@ -2,12 +2,11 @@
    width: 100%;
    .innerAppointment {
       background: $dark-bg;
-   }
-
-   .imgContainer {
-      z-index: 20;
-      margin: auto;
-      max-width: 300px !important;
+      .imgContainer {
+         z-index: 20;
+         margin: auto;
+         max-width: 350px !important;
+      }
    }
 
    .description {

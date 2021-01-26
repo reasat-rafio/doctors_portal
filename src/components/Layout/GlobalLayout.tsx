@@ -1,4 +1,6 @@
-import { Navmenu } from "../Navbar/Navmenu";
+import { useCtx } from "../../store";
+import { Loading } from "../Loading/Loading";
+
 import SnackBar from "../Snackbar/Snackbar";
 
 interface LayoutProps {
@@ -6,8 +8,12 @@ interface LayoutProps {
 }
 
 export const GlobalLayout: React.FC<LayoutProps> = ({ children }) => {
+   const {
+      userState: { loading },
+   } = useCtx();
    return (
       <>
+         {loading && <Loading />}
          <SnackBar />
          {children}
       </>
