@@ -45,8 +45,6 @@ export const RegisterCard: React.FC<RegisterCard> = ({}) => {
             setSnackbar(true, "error", error.response.data.error)
          );
       }
-
-      //   Cookies.set("token", data.token, { expires: 7 });
    };
 
    return (

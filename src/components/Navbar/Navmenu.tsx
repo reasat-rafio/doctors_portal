@@ -7,6 +7,8 @@ import { useCtx } from "../../store";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import { useRouter } from "next/router";
+import { USER_LOGOUT_ACTION } from "../../store/actions/userAction";
+import Cookies from "js-cookie";
 
 interface NavmenuProps {}
 
@@ -17,6 +19,7 @@ export const Navmenu: React.FC<NavmenuProps> = ({}) => {
 
    const {
       userState: { isLoggedIn },
+      userDispatch,
    } = useCtx();
 
    const [isSmDevice, setIsSmDevice] = useState<boolean>(false);
@@ -26,6 +29,12 @@ export const Navmenu: React.FC<NavmenuProps> = ({}) => {
          setIsSmDevice(true);
       }
    }, []);
+
+   //
+   const logoutAction = () => {
+      userDispatch(USER_LOGOUT_ACTION());
+      Cookies.remove("token");
+   };
 
    return (
       <div ref={myRef} className="navbar">
@@ -58,6 +67,7 @@ export const Navmenu: React.FC<NavmenuProps> = ({}) => {
                            variant="outlined"
                            color="secondary"
                            startIcon={<ExitToAppIcon />}
+                           onClick={logoutAction}
                         >
                            Logout
                         </Button>

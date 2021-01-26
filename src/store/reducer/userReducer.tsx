@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { LOADING_START, LOADING_END, USER_LOGIN } from "../types";
+import { LOADING_START, LOADING_END, USER_LOGIN, USER_LOGOUT } from "../types";
 
 type Action = {
    type: string;
@@ -27,7 +27,8 @@ export const userReducer = (state: State, action: Action) => {
          return { ...state, loading: false };
       case USER_LOGIN:
          return { ...state, isLoggedIn: true, user: [action.payload] };
-
+      case USER_LOGOUT:
+         return { ...state, isLoggedIn: false, user: [] };
       default:
          return state;
    }
