@@ -1,4 +1,5 @@
-import { LOADING_START, LOADING_END } from "../types";
+import { useEffect } from "react";
+import { LOADING_START, LOADING_END, USER_LOGIN } from "../types";
 
 type Action = {
    type: string;
@@ -18,11 +19,15 @@ export const initialUserState: State = {
 };
 
 export const userReducer = (state: State, action: Action) => {
+   console.log(state);
    switch (action.type) {
       case LOADING_START:
          return { ...state, loading: true };
       case LOADING_END:
          return { ...state, loading: false };
+      case USER_LOGIN:
+         return { ...state, isLoggedIn: true, user: [action.payload] };
+
       default:
          return state;
    }

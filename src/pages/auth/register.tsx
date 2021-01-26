@@ -11,7 +11,7 @@ const Login: React.FC<LoginProps> = ({}) => {
    return (
       <div className="login ">
          <Head>
-            <title>Login | Doctors Portal</title>
+            <title>Sign Up | Doctors Portal</title>
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <Grid container className="lgCnt">

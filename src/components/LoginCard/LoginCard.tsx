@@ -10,6 +10,10 @@ import { LoginSchema } from "../../utils/yupSchema";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import { useCtx } from "../../store";
+import { setSnackbar } from "../../store/actions/snackbar";
+import { USER_LOGIN_ACTION } from "../../store/actions/userAction";
+import { useRouter } from "next/router";
 
 interface LoginCardProps {}
 interface LoginDataInterFace {
@@ -19,6 +23,8 @@ interface LoginDataInterFace {
 
 export const LoginCard: React.FC<LoginCardProps> = ({}) => {
    const classes = loginCardStyles();
+   const { snackbarDispatch, userDispatch } = useCtx();
+   const router = useRouter();
 
    // Setting up Yup as useFrom resolver
    const { handleSubmit, register, errors } = useForm({
@@ -27,12 +33,19 @@ export const LoginCard: React.FC<LoginCardProps> = ({}) => {
 
    // on the form submit
    const onSubmit = async (user: LoginDataInterFace) => {
-      const { data } = await axios.post(
-         `${process.env.BASE_URL}/api/auth/login`,
-         user
-      );
-
-      Cookies.set("token", data.token, { expires: 7 });
+      try {
+         const { data } = await axios.post(
+            `${process.env.BASE_URL}/api/auth/login`,
+            user
+         );
+         Cookies.set("token", data.token, { expires: 7 });
+         userDispatch(USER_LOGIN_ACTION(data.data));
+         router.push("/");
+      } catch (error) {
+         snackbarDispatch(
+            setSnackbar(true, "error", error.response.data.error)
+         );
+      }
    };
 
    return (

@@ -16,11 +16,9 @@ export const Navmenu: React.FC<NavmenuProps> = ({}) => {
    const router = useRouter();
 
    const {
-      state: {
-         user: { isLoggedIn },
-      },
-      dispatch,
+      userState: { isLoggedIn },
    } = useCtx();
+
    const [isSmDevice, setIsSmDevice] = useState<boolean>(false);
 
    useEffect(() => {

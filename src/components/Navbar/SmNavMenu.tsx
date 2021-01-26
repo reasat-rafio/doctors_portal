@@ -33,10 +33,7 @@ export default function SmNavMenu() {
    });
 
    const {
-      state: {
-         user: { isLoggedIn },
-      },
-      dispatch,
+      userState: { isLoggedIn },
    } = useCtx();
 
    // NavMenu toggle action

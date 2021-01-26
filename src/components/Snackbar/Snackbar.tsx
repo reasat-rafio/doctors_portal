@@ -19,26 +19,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Snackbars() {
-   const {
-      state: { snackbar },
-      dispatch,
-   } = useCtx();
+   const { snackbarState, snackbarDispatch } = useCtx();
 
    const classes = useStyles();
    const [open, setOpen] = useState(false);
 
-   const { snackbarOpen, snackbarType, snackbarMessage } = snackbar;
+   const { snackbarOpen, snackbarType, snackbarMessage } = snackbarState;
 
    useEffect(() => {
       setOpen(snackbarOpen);
-   }, [snackbar]);
+   }, [snackbarState]);
 
    const handleClose = (event: any, reason: any) => {
       if (reason === "clickaway") {
          return;
       }
 
-      dispatch(removeSnackbar());
+      snackbarDispatch(removeSnackbar());
    };
 
    return (

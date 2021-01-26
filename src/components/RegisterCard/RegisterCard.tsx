@@ -25,7 +25,7 @@ interface LoginDataInterFace {
 export const RegisterCard: React.FC<RegisterCard> = ({}) => {
    const classes = loginCardStyles();
    const router = useRouter();
-   const { state, dispatch } = useCtx();
+   const { snackbarDispatch } = useCtx();
 
    // Setting up Yup as useFrom resolver
    const { handleSubmit, register, errors } = useForm({
@@ -41,7 +41,9 @@ export const RegisterCard: React.FC<RegisterCard> = ({}) => {
          );
          router.push("/auth/login");
       } catch (error) {
-         dispatch(setSnackbar(true, "error", error.response.data.error));
+         snackbarDispatch(
+            setSnackbar(true, "error", error.response.data.error)
+         );
       }
 
       //   Cookies.set("token", data.token, { expires: 7 });
