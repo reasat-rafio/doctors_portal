@@ -1,5 +1,6 @@
 .appointment {
    padding: 10px;
+
    .ap_dtls {
       margin-bottom: 20px;
       .title {
@@ -28,10 +29,39 @@
 
    .availbleAppointments {
       margin: 30px 0;
+
       .title {
          text-align: center;
          font-size: 24px !important;
          color: $paste_green;
       }
+
+      .cards {
+         width: 70%;
+         margin: 20px auto;
+         .availbleAppointmentsCard {
+            padding: 10px 0;
+            border-radius: 4px;
+            box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2),
+               0 2px 4px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+            .avlBtn {
+               font-size: 12px;
+               font-weight: bold;
+               color: white;
+               background-image: $linar_background;
+               border-radius: 3px !important;
+            }
+         }
+      }
    }
+}
+.modalSendButton {
+   background-image: $linar_background;
+   color: white !important;
+   font-weight: bold !important;
+}
+
+.form-dialog-title {
+   color: $paste_green;
 }
