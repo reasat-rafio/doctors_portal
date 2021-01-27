@@ -5,16 +5,24 @@ import { Cards } from "./Cards";
 import { HomeStyles } from "../../utils/styles";
 import { card } from "./_Helper";
 import { useRouter } from "next/router";
+import { useCtx } from "../../store";
+import {
+   LOADING_END_ACTION,
+   LOADING_START_ACTION,
+} from "../../store/actions/userAction";
 
 interface HomeProps {}
 
 export const Home: React.FC<HomeProps> = ({}) => {
    const classes = HomeStyles();
    const router = useRouter();
+   const { userDispatch } = useCtx();
 
    // Go to appointment button action
    const getAppointmentAction = () => {
+      userDispatch(LOADING_START_ACTION());
       router.push("/appointment");
+      userDispatch(LOADING_END_ACTION());
    };
 
    return (

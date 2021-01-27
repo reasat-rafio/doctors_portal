@@ -56,7 +56,9 @@ export const Navmenu: React.FC<NavmenuProps> = ({}) => {
                      <a href="#reviews">Reviews</a>
                   </li>
                   <li>
-                     <a href="#blog">Blog</a>
+                     <Link href="/dashboard">
+                        <a>Dashboard</a>
+                     </Link>
                   </li>
                   <li>
                      <a href="#contact-us">Contact Us</a>
