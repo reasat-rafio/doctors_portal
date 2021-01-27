@@ -69,6 +69,6 @@ doctorsSchema.pre<any>("save", async function (this, next) {
 //    throw Error("Incorrect email");
 // };
 
-let DataSet = models.doctor || model<IUserModel | any>("Doctor", doctorsSchema);
+let DataSet = models.Doctor || model<IUserModel | any>("Doctor", doctorsSchema);
 
 export default DataSet;

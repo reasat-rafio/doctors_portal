@@ -11,6 +11,12 @@ import { FormControl, Input, InputLabel, Select } from "@material-ui/core";
 import { MenuItem } from "@material-ui/core";
 import { AppoinmentSchema } from "../../utils/yupSchema";
 import axios from "axios";
+import { useCtx } from "../../store";
+import { setSnackbar } from "../../store/actions/snackbar";
+import {
+   LOADING_END_ACTION,
+   LOADING_START_ACTION,
+} from "../../store/actions/userAction";
 
 interface AvailableCardsDialogProps {
    openModal: boolean;
@@ -40,17 +46,37 @@ export const AvailableCardsDialog: React.FC<AvailableCardsDialogProps> = ({
    };
 
    const [allDocs, setAllDocs] = useState([]);
-   console.log(allDocs);
 
    // Setting up Yup as useFrom resolver
    const { handleSubmit, register, errors } = useForm({
       resolver: yupResolver(AppoinmentSchema),
    });
 
+   //
+   const { snackbarDispatch, userDispatch } = useCtx();
+
    // On the form submit
-   const onSubmit = (data: dataInterface) => {
-      data["doctor_name"] = doctorName;
-      console.log(data);
+   const onSubmit = async (data: dataInterface) => {
+      try {
+         data["doctor_name"] = doctorName;
+         userDispatch(LOADING_START_ACTION());
+         const res = await axios.post(
+            `${process.env.BASE_URL}/api/appointment`,
+            data
+         );
+         console.log(res.data);
+
+         userDispatch(LOADING_END_ACTION());
+         handleClose();
+         snackbarDispatch(
+            setSnackbar(true, "success", "Appointment Submited!")
+         );
+      } catch (error) {
+         userDispatch(LOADING_END_ACTION());
+         snackbarDispatch(
+            setSnackbar(true, "error", error.response.data.error)
+         );
+      }
    };
 
    useEffect(() => {
@@ -63,7 +89,7 @@ export const AvailableCardsDialog: React.FC<AvailableCardsDialogProps> = ({
             } = await axios.get(`${process.env.BASE_URL}/api/doctors`);
             setAllDocs(allDoctors);
          } catch (error) {
-            console.log(error.reponse);
+            console.log(error);
          }
       };
 
@@ -91,8 +117,10 @@ export const AvailableCardsDialog: React.FC<AvailableCardsDialogProps> = ({
                         <MenuItem value="">
                            <em>None</em>
                         </MenuItem>
-                        {allDocs.map(({ name }) => (
-                           <MenuItem value={name}>{name} </MenuItem>
+                        {allDocs.map(({ name }, i) => (
+                           <MenuItem key={i} value={name}>
+                              {name}{" "}
+                           </MenuItem>
                         ))}
                      </Select>
                   </FormControl>
@@ -103,7 +131,7 @@ export const AvailableCardsDialog: React.FC<AvailableCardsDialogProps> = ({
                      label="Your Name"
                      type="text"
                      variant="outlined"
-                     name="name"
+                     name="patient_name"
                      inputRef={register}
                      fullWidth
                   />

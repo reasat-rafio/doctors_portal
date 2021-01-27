@@ -30,12 +30,12 @@ const AppoinmentPost = async (req: NextApiRequest, res: NextApiResponse) => {
       // updating the doctor
       const updatedDoctor = await UserModel.updateOne(
          { _id: doctor._id },
-         { $set: { appointment: newAppoinment._id } }
+         { $addToSet: { appointment: newAppoinment._id } }
       );
 
       const d = await UserModel.findOne({ name: req.body.doctor_name });
 
-      res.json({ newAppoinment, d, updatedDoctor });
+      res.status(200).json({ message: "success" });
    } catch (error) {
       res.status(403).json({ success: false, error: error.message });
    }

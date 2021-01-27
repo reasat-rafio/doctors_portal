@@ -20,7 +20,7 @@ const AppointmentSchema = new mongoose.Schema(
 );
 
 let DataSet =
-   mongoose.models.appointment ||
+   mongoose.models.Appointment ||
    mongoose.model<any>("Appointment", AppointmentSchema);
 
 export default DataSet;
