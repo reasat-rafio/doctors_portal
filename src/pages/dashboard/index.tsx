@@ -3,6 +3,7 @@ import { useCtx } from "../../store";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { setSnackbar } from "../../store/actions/snackbar";
+import { DashBoardLayout } from "../../components/Layout/DashBoardLayout";
 
 interface RedirectProps {
    to: string;
@@ -32,7 +33,9 @@ const Index: React.FC = ({}) => {
          <Head>
             <title>Dashboard</title>
          </Head>
-         <div>asdasd</div>
+         <DashBoardLayout>
+            <div>"asdasd</div>
+         </DashBoardLayout>
       </>
    );
 };

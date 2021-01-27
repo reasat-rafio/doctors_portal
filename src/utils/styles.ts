@@ -53,3 +53,13 @@ export const loginCardStyles = makeStyles((theme: Theme) =>
       },
    })
 );
+
+export const dashboardNavStyles = makeStyles((theme: Theme) =>
+   createStyles({
+      li: {
+         [theme.breakpoints.down("sm")]: {
+            display: "none",
+         },
+      },
+   })
+);
