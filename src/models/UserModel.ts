@@ -33,6 +33,9 @@ const doctorsSchema = new Schema(
          type: String,
          default: "Doctor",
       },
+      appointment: [
+         { type: [Schema.Types.ObjectId], ref: "Appointment", required: true },
+      ],
    },
    {
       timestamps: true,
@@ -66,6 +69,6 @@ doctorsSchema.pre<any>("save", async function (this, next) {
 //    throw Error("Incorrect email");
 // };
 
-let DataSet = models.doctor || model<IUserModel | any>("doctor", doctorsSchema);
+let DataSet = models.doctor || model<IUserModel | any>("Doctor", doctorsSchema);
 
 export default DataSet;
